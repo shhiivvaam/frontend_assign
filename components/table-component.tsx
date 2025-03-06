@@ -10,7 +10,7 @@ import {
 } from "material-react-table"
 import { Box, Chip, Avatar, Typography } from "@mui/material"
 import { Edit, ViewIcon as Visibility } from "lucide-react"
-// import { debounce } from "lodash"
+import { debounce } from "lodash"
 import { userData } from "@/data/user-data"
 
 
@@ -41,12 +41,12 @@ export default function TableComponent() {
         setData(userData)
     }, [])
 
-    // const debouncedSetGlobalFilter = useCallback(
-        // debounce((value: any) => {
-            // setGlobalFilter(value)
-        // }, 500),
-        // [],
-    // )
+    const debouncedSetGlobalFilter = useCallback(
+        debounce((value: any) => {
+            setGlobalFilter(value)
+        }, 500),
+        [],
+    )
 
     const columns = useMemo<MRT_ColumnDef<User>[]>(
         () => [
@@ -204,7 +204,7 @@ export default function TableComponent() {
         manualPagination: false,
         manualSorting: false,
         onColumnFiltersChange: setColumnFilters,
-        // onGlobalFilterChange: debouncedSetGlobalFilter,
+        onGlobalFilterChange: debouncedSetGlobalFilter,
         onPaginationChange: setPagination,
         onSortingChange: setSorting,
         onRowSelectionChange: setRowSelection,
