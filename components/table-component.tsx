@@ -9,7 +9,6 @@ import {
     type MRT_SortingState,
 } from "material-react-table"
 import { Box, Chip, Avatar, Typography } from "@mui/material"
-import { Edit, ViewIcon as Visibility } from "lucide-react"
 import { debounce } from "lodash"
 import { userData } from "@/data/user-data"
 
@@ -57,7 +56,7 @@ export default function TableComponent() {
                     <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                         <Avatar src={row.original.avatar} alt={row.original.name} />
                         <Box>
-                            <Typography variant="body1">{row.original.name}</Typography>
+                            <Typography variant="body1" sx={{ fontWeight: 'medium' }}>{row.original.name}</Typography>
                             <Typography variant="body2" color="text.secondary">
                                 @{row.original.username}
                             </Typography>
@@ -74,7 +73,7 @@ export default function TableComponent() {
                         color="primary"
                         size="small"
                         sx={{
-                            backgroundColor: "#e6f7ff",
+                            backgroundColor: "#cce6ff",
                             color: "#0080ff",
                             borderRadius: "16px",
                             fontWeight: "medium",
@@ -83,12 +82,14 @@ export default function TableComponent() {
                 ),
                 filterVariant: "select",
                 filterSelectOptions: ["Working", "On Leave", "Offline"],
+                // muiTableBodyCellProps: { sx: { paddingRight: "8px" } },
             },
             {
                 accessorKey: "role",
                 header: "Role",
                 filterVariant: "multi-select",
                 filterSelectOptions: ["Product manager", "Designer", "Developer", "QA Engineer"],
+                // muiTableBodyCellProps: { sx: { paddingLeft: "8px" } },
             },
             {
                 accessorKey: "email",
@@ -103,29 +104,30 @@ export default function TableComponent() {
                     const remainingCount = teams.length - displayTeams.length
 
                     return (
-                        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+                        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", alignItems: "center" }}>
                             {displayTeams.map((team: any) => (
                                 <Chip
                                     key={team}
                                     label={team}
                                     size="small"
                                     sx={{
+                                        fontWeight: "medium",
                                         backgroundColor:
                                             team === "Design"
-                                                ? "#e6f7ff"
+                                                ? "#cce6ff"
                                                 : team === "Product"
-                                                    ? "#e6f4ea"
+                                                    ? "#99ccff"
                                                     : team === "Development"
-                                                        ? "#e8f0fe"
-                                                        : "#f5f5f5",
+                                                        ? "#66b3ff"
+                                                        : "#66b3ff",
                                         color:
                                             team === "Design"
                                                 ? "#0080ff"
                                                 : team === "Product"
-                                                    ? "#34a853"
+                                                    ? "#004d99"
                                                     : team === "Development"
-                                                        ? "#4285f4"
-                                                        : "#5f6368",
+                                                        ? "#003366"
+                                                        : "#003366",
                                         borderRadius: "16px",
                                     }}
                                 />
@@ -135,9 +137,11 @@ export default function TableComponent() {
                                     label={`+${remainingCount}`}
                                     size="small"
                                     sx={{
-                                        backgroundColor: "#f5f5f5",
-                                        color: "#5f6368",
+                                        fontWeight: "medium",
+                                        backgroundColor: "#f2f2f2",
+                                        color: "#00000",
                                         borderRadius: "16px",
+                                        alignItems: "center",
                                     }}
                                 />
                             )}
@@ -154,16 +158,16 @@ export default function TableComponent() {
                 id: "actions",
                 header: "",
                 Cell: () => (
-                    <Box sx={{ display: "flex", gap: 4 }}>
+                    <Box sx={{ display: "flex", gap: 4, marginLeft: "50px" }}>
                         <Box
                             sx={{
-                                width: 24,
-                                height: 24,
+                                width: 20,
+                                height: 20,
                                 borderRadius: "50%",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                border: "1px solid #e0e0e0",
+                                border: "2px solid #000000",
                                 cursor: "pointer",
                             }}
                         >
@@ -171,13 +175,13 @@ export default function TableComponent() {
                         </Box>
                         <Box
                             sx={{
-                                width: 24,
-                                height: 24,
+                                width: 20,
+                                height: 20,
                                 borderRadius: "50%",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                border: "1px solid #e0e0e0",
+                                border: "2px solid #000000",
                                 cursor: "pointer",
                             }}
                         >
