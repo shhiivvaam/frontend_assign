@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+    
 
-## Getting Started
+## JSON Driven Table UI with React and Material React Table v2
 
-First, run the development server:
+This project showcases a configurable, JSON-driven table UI built with React and Material React Table v2. The table supports features such as debounced name filtering, multi-select role filtering, age-based sorting, pagination, row selection, and displays user images.
+
+![1741267958105](image/README/1741267958105.png)
+
+## Features
+
+1. Debounced Name Filtering: Allows users to filter table entries by name with a debounce to optimize performance.
+2. Multi-Select Role Filtering: Enables filtering of table entries based on multiple selected roles.
+3. Age-Based Sorting: Provides sorting functionality for the age column.
+4. Pagination: Manages large datasets by displaying data across multiple pages.
+5. Row Selection: Allows users to select individual rows for further actions.
+6. User Images: Displays a profile image for each person in the table.
+
+## Run the Project
 
 ```bash
+git clone https://github.com/shhiivvaam/frontend_assign.git
+cd frontend_assign
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Use the Search Name input to filter entries by name. The search is debounced to improve performance.
+2. Use the Role multi-select dropdown to filter entries based on selected roles.
+3. Click on the Age column header to sort entries by age.
+4. Navigate through pages using the pagination controls at the bottom of the table.
+5. Select rows by clicking on them; selected rows can be used for further actions as needed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
 
-## Learn More
+The table's schema and data are driven by JSON configurations:
 
-To learn more about Next.js, take a look at the following resources:
+`User Schems Configuration`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```json
+User = {     id: string     name: string     username: string     status: string     role: string     email: string     teams: string[]     age: number     avatar: string }
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`Table Schema: Defines the structure and behavior of the table columns`
 
-## Deploy on Vercel
+```json
+[   { "accessorKey": "image", "header": "", "type": "image" },   { "accessorKey": "name", "header": "Name", "filter": "search" },   { "accessorKey": "status", "header": "Status" },   { "accessorKey": "role", "header": "Role", "filter": "multi-select" },   { "accessorKey": "email", "header": "Email" },   { "accessorKey": "teams", "header": "Teams", "type": "tags" },   { "accessorKey": "age", "header": "Age", "sortable": true } ]
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`Table Data: Provides the content to be displayed in the table`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+```json
+[   {         id: "1",         name: "Shivam Kumar",         username: "shhiivvaam",         status: "Working",         role: "Developer",         email: "life.shivam2394@gmail.com",         teams: ["Design", "Product", "Development", "Marketing", "Sales", "Support", "QA", "DevOps"],         age: 21,         avatar: "https://avatars.githubusercontent.com/u/96204332?s=400&u=154b02f4360fdbda52352f068986f73984d9f9e2&v=4?height=40&width=40",     } ]
+```
+
+#### `These configurations can be modified to customize the table's appearance and functionality.`
