@@ -50,7 +50,7 @@ export const tableConfig = {    // we can directly change the configs here witho
             },
             {
                 id: "actions",
-                header: "Actions",
+                header: "",
                 enableSorting: false,
                 enableFiltering: false,
             },

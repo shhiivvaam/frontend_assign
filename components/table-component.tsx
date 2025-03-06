@@ -152,13 +152,13 @@ export default function TableComponent() {
             },
             {
                 id: "actions",
-                header: "Actions",
+                header: "",
                 Cell: () => (
-                    <Box sx={{ display: "flex", gap: 1 }}>
+                    <Box sx={{ display: "flex", gap: 4 }}>
                         <Box
                             sx={{
-                                width: 32,
-                                height: 32,
+                                width: 24,
+                                height: 24,
                                 borderRadius: "50%",
                                 display: "flex",
                                 alignItems: "center",
@@ -167,12 +167,12 @@ export default function TableComponent() {
                                 cursor: "pointer",
                             }}
                         >
-                            <Visibility size={16} />
+                            <></>
                         </Box>
                         <Box
                             sx={{
-                                width: 32,
-                                height: 32,
+                                width: 24,
+                                height: 24,
                                 borderRadius: "50%",
                                 display: "flex",
                                 alignItems: "center",
@@ -181,7 +181,7 @@ export default function TableComponent() {
                                 cursor: "pointer",
                             }}
                         >
-                            <Edit size={16} />
+                            <></>
                         </Box>
                     </Box>
                 ),
