@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.7",
+    "@mui/material": "^6.4.7",
+    "@mui/x-date-pickers": "^7.27.1",
     "lodash": "^4.17.21",
     "lucide-react": "^0.477.0",
+    "material-react-table": "^3.2.1",
     "next": "15.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
